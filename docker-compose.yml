@@ -1,0 +1,17 @@
+services:
+  client:
+    build: .
+    container_name: knowledge-client-container
+    restart: always
+    ports:
+      - "3502"
+    environment:
+      STAGE: 'dev'
+      NODE_ENV: 'development'
+      PORT: '3502'
+    networks:
+      - knowledge-network # Use the overlay network
+
+networks:
+  knowledge-network:
+    external: true

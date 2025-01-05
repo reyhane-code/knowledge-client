@@ -27,7 +27,7 @@ export async function interceptorResponseError(error: AxiosError) {
   const status = error?.response?.status;
   const originalRequest = error.config!;
   const axiosInstance = axios.create({
-    baseURL: "http://127.0.0.1:3500/api",
+    baseURL: "http://127.0.0.1:5000/api",
     timeout: 3000,
   });
 

@@ -1,10 +1,10 @@
 {
-  "name": "game-hub",
+  "name": "knoledege",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 3002 --host",
+    "dev": "vite --port 3502 --host",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },

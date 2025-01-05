@@ -1,19 +1,13 @@
 import { useEffect, useState } from "react";
 import useUserData from "../hooks/userUserData";
 import ArticleGrid from "./ArticleGrid";
-import GameGrid from "./GameGrid";
 import { IGetArticlesResponse } from "../responses/get-articles.response";
-import { IGetGamesResponse } from "../responses/get-games.response";
 
 const contentMapping = {
     article: {
         hook: useUserData<IGetArticlesResponse>,
         GridComponent: ArticleGrid,
-    },
-    game: {
-        hook: useUserData<IGetGamesResponse>,
-        GridComponent: GameGrid,
-    },
+    }
 };
 
 interface UserContentFeedProps {
@@ -44,17 +38,6 @@ const UserContentFeed: React.FC<UserContentFeedProps> = ({ contentType, requestT
         return (
             <ArticleGrid
                 data={data as IGetArticlesResponse}
-                error={error}
-                isLoading={isLoading}
-                setPage={setPage}
-                page={page}
-                perPage={10}
-            />
-        );
-    } else if (contentType === 'game') {
-        return (
-            <GameGrid
-                data={data as IGetGamesResponse}
                 error={error}
                 isLoading={isLoading}
                 setPage={setPage}

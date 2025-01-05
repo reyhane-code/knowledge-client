@@ -2,19 +2,19 @@ import Button from "./common/Button";
 import { useState, ReactNode } from "react";
 
 interface Props {
-  children: ReactNode; // Change from string to ReactNode
+  children: ReactNode;
+  className?: string;
 }
 
-const ExpandableText = ({ children }: Props) => {
+const ExpandableText = ({ children, className }: Props) => {
   const [expanded, setExpanded] = useState(false);
   const limit = 300;
 
   if (!children) return null;
 
-  // Convert children to string if it's a single text node
   const textContent = typeof children === 'string' ? children : '';
-  
-  if (textContent.length <= limit) return <p>{textContent}</p>;
+
+  if (textContent.length <= limit) return <p className={`text-lg ${className}`}>{textContent}</p>;
 
   const summary = expanded ? textContent : textContent.substring(0, limit) + "...";
 
@@ -24,7 +24,7 @@ const ExpandableText = ({ children }: Props) => {
       <Button
         size="xs"
         color="yellow-400"
-        className="ml-1 font-bold"
+        className={`ml-1 font-bold bg-yellow-400 ${className}`}
         onClick={() => setExpanded(!expanded)}
       >
         {expanded ? "Show Less" : "Read More"}

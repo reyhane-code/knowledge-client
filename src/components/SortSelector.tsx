@@ -12,7 +12,7 @@ interface Sortby {
 }
 
 const SortSelector = ({ sortbyOptions }: Props) => {
-  const { setSortBy } = useApi<IGetGamesResponse, Error>(''); // Assuming you have a suitable endpoint
+  const { setSortBy } = useApi(''); // Assuming you have a suitable endpoint
   const [selectedValue, setSelectedValue] = useState("Sort");
 
   // Add "All Sorts" option to the sortbyOptions

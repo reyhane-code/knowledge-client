@@ -21,7 +21,7 @@ function Image({
   let source: string | undefined;
   if (query) {
     const queryString = useObjToQueryString(query);
-    source = `http://127.0.0.1:3500/api/v1/files?${queryString}`;
+    source = `http://127.0.0.1:5000/api/v1/files?${queryString}`;
   } else {
     source = imgSrc;
   }
@@ -33,7 +33,7 @@ function Image({
   useEffect(() => {
     if (query) {
       const queryString = useObjToQueryString(query);
-      setImgSrc(`http://127.0.0.1:3500/api/v1/files?${queryString}`);
+      setImgSrc(`http://127.0.0.1:5000/api/v1/files?${queryString}`);
     } else {
       setImgSrc(src);
     }

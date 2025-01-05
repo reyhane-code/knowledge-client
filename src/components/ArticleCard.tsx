@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Image from "./common/Image";
 import { FaEye } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa6";
+import { FaHeart } from "react-icons/fa";
 import { ImageFormat } from "../enums";
 import Article from "../entities/Article";
 
@@ -14,18 +14,17 @@ const ArticleCard = ({ article, likes }: Props) => {
   return (
     <Link
       to={`/articles/${article.id}`}
-      className="group card w-full bg-base-300 cursor-pointer"
+      className="group bg-base-300 cursor-pointer rounded-lg shadow-md transition duration-300 ease-in-out hover:shadow-lg"
     >
-
       <Image
-        query={{ hashKey: article.image, format: ImageFormat.WEBP, width: 300, quality: 100 }}
+        query={{ hashKey: article.image, format: ImageFormat.WEBP, width: 300, height: 300, quality: 100 }}
         altText={article.title}
-        className="transform group-hover:scale-[1.05] transition-all duration-300 ease-in object-cover w-[90vw] md:w-[40rem] mx-auto"
+        className="object-cover w-full h-48 md:h-64 lg:h-80 xl:h-96 group-hover:scale-105 transition duration-300 ease-in-out"
       />
-      <div className="card-body !p-3">
-        <div className="h-full flex flex-col justify-between w-full">
-          <h2 className="card-title text-base lg:text-lg">{article.title}</h2>
-          <div className="flex items-center space-x-3 self-end">
+      <div className="p-3">
+        <div className="flex flex-col justify-between h-full">
+          <h2 className="text-lg lg:text-xl font-bold">{article.title}</h2>
+          <div className="flex items-center justify-between mt-4">
             <div className="flex items-center space-x-1">
               <span className="text-sm">{article.view}</span>
               <FaEye className="text-md" />

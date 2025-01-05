@@ -126,19 +126,6 @@ const SearchInput = () => {
                         Show All
                       </div>
                     </div>
-
-                    <ul className="flex flex-col w-full bg-base-100 rounded-box z-[1] divide-y divide-slate-200 pt-2 gap-y-1">
-                      {data.items.games.slice(0, 3).map((game: any) => (
-                        <li key={game.id}>
-                          <Link
-                            className="text-base hover:text-blue-500"
-                            to={`/games/${game.slug}`}
-                          >
-                            {game.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
                 )}
                 {data?.items.articles?.length > 0 && (
